@@ -64,13 +64,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        boolean ss = session.isLoggedIn();
-        if(ss){
+        SessionUser ss = session.isLoggedIn();
+        if(ss!=null){
             login.setVisibility(View.GONE);
             register.setVisibility(View.GONE);
             manager.setVisibility(View.VISIBLE);
             logout.setVisibility(View.VISIBLE);
-            Log.e(MainActivity.class.getName(), String.valueOf("LoggedIn"));
+            Log.e(MainActivity.class.getName(), String.valueOf(ss.getUserName()));
+            welcome.setText("Chào mừng " + ss.getUserName() + ", ngày mới tốt lành!!");
         }else{
             Log.e(MainActivity.class.getName(), String.valueOf("noUser"));
             login.setVisibility(View.VISIBLE);

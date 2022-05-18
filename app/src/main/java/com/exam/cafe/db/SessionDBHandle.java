@@ -73,7 +73,7 @@ public class SessionDBHandle extends SQLiteOpenHelper {
         }
     }
 
-    public boolean isLoggedIn(){
+    public SessionUser isLoggedIn(){
         SQLiteDatabase db = this.getReadableDatabase();
         try {
             Cursor cursor = db.query(TABLE_NAME, null,  "id = ?", new String[] { String.valueOf(1) },null, null, null);
@@ -82,14 +82,14 @@ public class SessionDBHandle extends SQLiteOpenHelper {
             String a = cursor.getString(2);
 
             if(cursor!=null & cursor.getCount()>0){
-                return true;
+                return new SessionUser(1,cursor.getInt(1),cursor.getString(2),cursor.getString(3));
             }
             else {
-                return false;
+                return null;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
 
 
