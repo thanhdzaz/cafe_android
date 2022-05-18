@@ -17,10 +17,18 @@ public class TableCafeManager extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_cafe_manager);
         Button createTable = findViewById(R.id.btn_create_table);
+        Button list = findViewById(R.id.btn_list_table);
         createTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), CreateTable.class));
+            }
+        });
+
+        list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ListTable.class));
             }
         });
 

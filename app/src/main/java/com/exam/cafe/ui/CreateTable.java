@@ -21,6 +21,7 @@ public class CreateTable extends AppCompatActivity {
         Button create = findViewById(R.id.create_table);
 
         tb = new TableDBHandle(this.getApplicationContext());
+        tb.init();
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

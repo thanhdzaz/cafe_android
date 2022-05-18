@@ -14,12 +14,13 @@ import com.exam.cafe.dto.User;
 public class TableDBHandle extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "CafeManager";
     private static final int DATABASE_VERSION = 1;
-    private static final String TABLE_NAME = "Table";
+    private static final String TABLE_NAME = "TableList";
 
     private static final String KEY_ID = "id";
     private static final String KEY_NUM = "number";
     private static final String KEY_FLOOR = "floor";
     private static final String KEY_STATUS = "status";
+    String create_user_table = String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER PRIMARY KEY, %s TEXT, %s TEXT, %s TEXT)", TABLE_NAME, KEY_ID, KEY_NUM, KEY_FLOOR, KEY_STATUS);
 
     public TableDBHandle(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -28,14 +29,12 @@ public class TableDBHandle extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_user_table = String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER PRIMARY KEY, %s TEXT, %s TEXT)", TABLE_NAME, KEY_ID, KEY_NUM, KEY_FLOOR, KEY_STATUS);
         db.execSQL(create_user_table);
     }
 
     public void init(){
         try {
             SQLiteDatabase db = this.getWritableDatabase();
-            String create_user_table = String.format("CREATE TABLE IF NOT EXISTS %s(%s INTEGER PRIMARY KEY, %s TEXT, %s TEXT)", TABLE_NAME, KEY_ID, KEY_NUM, KEY_FLOOR, KEY_STATUS);
             db.execSQL(create_user_table);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -53,6 +52,10 @@ public class TableDBHandle extends SQLiteOpenHelper {
 
     public boolean addTable(Table table){
         SQLiteDatabase db = this.getWritableDatabase();
+
+
+        Cursor a = db.rawQuery("select * from " + TABLE_NAME,null);
+
         try{
             ContentValues values = new ContentValues();
             values.put(KEY_NUM, table.getNum());

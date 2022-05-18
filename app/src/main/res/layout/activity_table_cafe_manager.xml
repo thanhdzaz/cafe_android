@@ -16,5 +16,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tạo bàn" />
+
+        <Button
+            android:id="@+id/btn_list_table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DS bàn" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

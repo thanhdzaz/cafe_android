@@ -16,21 +16,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Số bàn" />
+            android:hint="Số bàn"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/tableFloor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Tầng" />
+            android:hint="Tầng"
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/create_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tạo bàn" />
+            android:hint="Tạo bàn" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
