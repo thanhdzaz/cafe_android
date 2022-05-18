@@ -12,8 +12,10 @@ import android.widget.TextView;
 import com.exam.cafe.R;
 import com.exam.cafe.db.SessionDBHandle;
 import com.exam.cafe.dto.SessionUser;
+import com.exam.cafe.ui.CreateTable;
 import com.exam.cafe.ui.Login;
 import com.exam.cafe.ui.Register;
+import com.exam.cafe.ui.TableCafeManager;
 
 public class MainActivity extends AppCompatActivity {
     SessionDBHandle session;
@@ -31,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
         register = findViewById(R.id.register);
         manager = findViewById(R.id.menu);
         logout = findViewById(R.id.logout);
+
+        manager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), TableCafeManager.class));
+            }
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

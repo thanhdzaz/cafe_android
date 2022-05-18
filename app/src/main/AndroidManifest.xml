@@ -14,6 +14,12 @@
         android:theme="@style/Theme.HeheCafe"
         tools:targetApi="31">
         <activity
+            android:name=".ui.CreateTable"
+            android:exported="false" />
+        <activity
+            android:name=".ui.TableCafeManager"
+            android:exported="false" />
+        <activity
             android:name=".ui.Register"
             android:exported="false" />
         <activity
