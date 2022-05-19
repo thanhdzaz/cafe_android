@@ -8,30 +8,72 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/table_code"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:text="Country Name"
-            android:textSize="22sp" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/floor_code"
+            <TextView
+                android:id="@+id/table_code"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Country Name"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/floor_code"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Population" />
+
+            <TextView
+                android:id="@+id/table_status"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Status" />
+        </LinearLayout>
+
+        <Space
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:text="Population" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="138dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/delete_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Xoá bàn" />
+
+            <Button
+                android:id="@+id/edit_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sửa bàn" />
+
+        </LinearLayout>
+
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
