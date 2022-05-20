@@ -163,6 +163,30 @@ public class TableListAdapter extends BaseAdapter {
         return resID;
     }
 
+    public void seach(String s){
+
+        if(s.matches("")){
+            refreshDB();
+        }else{
+
+            List<Table> list = new ArrayList<Table>();
+
+            String sql = "select * from TableList where number like '%"+s+"%'";
+
+            Database db = new Database(context);
+
+            Cursor cs = db.retrieveData(sql);
+
+            while (cs.moveToNext()) {
+                list.add(new Table(cs.getInt(0),cs.getInt(1),cs.getInt(2),cs.getString(3)));
+            }
+
+            this.listData = list;
+            self.notifyDataSetChanged();
+
+        }
+    }
+
     static class ViewHolder {
         TextView table_code;
         TextView floor_code;

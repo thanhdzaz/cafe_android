@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListTable extends AppCompatActivity {
-    public TableListAdapter n;
+    public TableListAdapter tbadp;
     public ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +32,10 @@ public class ListTable extends AppCompatActivity {
 
         List<Table> table = getListData();
         listView = (ListView) findViewById(R.id.listView);
-        n = new TableListAdapter(this, table);
-        listView.setAdapter(n);
+        tbadp = new TableListAdapter(this, table);
+        listView.setAdapter(tbadp);
 
-        n.setSelf(n);
+        tbadp.setSelf(tbadp);
         // When the user clicks on the ListItem
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -48,10 +49,12 @@ public class ListTable extends AppCompatActivity {
 
 
         Button search = findViewById(R.id.search_table_btn);
+        EditText txtSearch = findViewById(R.id.txtSearch);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), SearchTable.class));
+                String txt = txtSearch.getText().toString();
+                tbadp.seach(txt);
             }
         });
 
@@ -74,7 +77,7 @@ public class ListTable extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        n.refreshDB();
+        tbadp.refreshDB();
     }
 
 
