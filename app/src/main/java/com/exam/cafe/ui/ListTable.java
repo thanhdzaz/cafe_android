@@ -2,11 +2,13 @@ package com.exam.cafe.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -43,6 +45,16 @@ public class ListTable extends AppCompatActivity {
                 Toast.makeText(ListTable.this, "Selected :" + " " + table, Toast.LENGTH_LONG).show();
             }
         });
+
+
+        Button search = findViewById(R.id.search_table_btn);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), SearchTable.class));
+            }
+        });
+
     }
     private  List<Table> getListData() {
         List<Table> list = new ArrayList<Table>();
@@ -64,5 +76,6 @@ public class ListTable extends AppCompatActivity {
         super.onResume();
         n.refreshDB();
     }
+
 
 }

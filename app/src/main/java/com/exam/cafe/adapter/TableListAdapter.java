@@ -134,7 +134,7 @@ public class TableListAdapter extends BaseAdapter {
 
         int num = table.getNum();
 
-        holder.table_code.setText(""+num);
+        holder.table_code.setText("Số bàn: "+num);
         holder.floor_code.setText("Tầng: " + table.getFloor());
         holder.status.setText("Trạng thái bàn: " + table.getStatus());
 

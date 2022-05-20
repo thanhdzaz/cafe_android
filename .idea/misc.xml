@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Dev/native/cafe_android/app/src/main/res/layout/activity_list_table.xml" value="0.266304347826087" />
+        <entry key="..\:/Dev/native/cafe_android/app/src/main/res/layout/activity_search_table.xml" value="0.33" />
+        <entry key="..\:/Dev/native/cafe_android/app/src/main/res/layout/activity_search_tb.xml" value="0.1762917933130699" />
+        <entry key="..\:/Dev/native/cafe_android/app/src/main/res/layout/list_table_layout.xml" value="0.33" />
+        <entry key="..\:/Dev/native/cafe_android/app/src/main/res/layout/menu_item_list.xml" value="0.32653985507246375" />
         <entry key="..\:/Workspace/HeheCafe/app/src/main/res/drawable/ic_login_bk.xml" value="0.1955" />
         <entry key="..\:/Workspace/HeheCafe/app/src/main/res/drawable/login_shape_bk.xml" value="0.1945" />
         <entry key="..\:/Workspace/HeheCafe/app/src/main/res/layout/activity_add_menu.xml" value="0.23641304347826086" />
