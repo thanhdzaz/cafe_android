@@ -4,47 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.AddMenu">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="-42dp"
-        tools:layout_editor_absoluteY="218dp"
-        android:padding="20dp">
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
-        <TextView
-            android:id="@+id/welcome"
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <EditText
+            android:id="@+id/ed_menu_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chào mừng bạn 🤞🤞"
-            android:textSize="20dp" />
+            android:ems="10"
+            android:hint="Tên món"
+            android:inputType="text" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <EditText
+            android:id="@+id/ed_menu_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Giá"
+            android:inputType="textPersonName" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
 
         <Button
-            android:id="@+id/login"
+            android:id="@+id/edit_menu_hehe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Đăng nhập" />
-
-        <Button
-            android:id="@+id/register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Đăng ký" />
-
-        <Button
-            android:id="@+id/menu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Quản lý" />
-
-        <Button
-            android:id="@+id/logout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Đăng xuất" />
-
+            android:text="Cập nhật" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

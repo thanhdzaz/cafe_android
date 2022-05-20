@@ -28,7 +28,6 @@ public class ListTable extends AppCompatActivity {
         List<Table> table = getListData();
         final ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(new TableListAdapter(this, table));
-
         // When the user clicks on the ListItem
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
