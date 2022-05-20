@@ -2,6 +2,7 @@ package com.exam.cafe.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,19 +20,45 @@ import com.exam.cafe.R;
 import com.exam.cafe.db.Database;
 import com.exam.cafe.dialog.CustomDialog;
 import com.exam.cafe.dialog.CustomDialog2;
+import com.exam.cafe.dto.Menu;
 import com.exam.cafe.dto.Table;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TableListAdapter extends BaseAdapter {
     private List<Table> listData;
     private LayoutInflater layoutInflater;
     private Context context;
+    TableListAdapter self;
 
     public TableListAdapter(Context aContext,  List<Table> listData) {
         this.context = aContext;
         this.listData = listData;
         layoutInflater = LayoutInflater.from(aContext);
+    }
+
+    public void setSelf(TableListAdapter n){
+        this.self = n;
+    }
+
+
+    public void refreshDB(){
+        List<Table> list = new ArrayList<Table>();
+
+        String sql = "select * from TableList";
+
+        Database db = new Database(context);
+
+        Cursor cs = db.retrieveData(sql);
+
+        while (cs.moveToNext()) {
+            list.add(new Table(cs.getInt(0),cs.getInt(1),cs.getInt(2),cs.getString(3)));
+        }
+
+       this.listData = list;
+        self.notifyDataSetChanged();
+
     }
 
     public Context getContext() {
@@ -47,6 +74,7 @@ public class TableListAdapter extends BaseAdapter {
                     boolean dele = db.executeSQL("delete from TableList where id = "+ table.getId());
                     if (dele){
                         Toast.makeText(getContext(),"Xoá bàn thành công", Toast.LENGTH_LONG);
+                        refreshDB();
                     }else{
                         Toast.makeText(getContext(),"Xoá bàn thất bại", Toast.LENGTH_LONG);
                     }
@@ -66,7 +94,7 @@ public class TableListAdapter extends BaseAdapter {
             public void editClick(boolean click) {
             }
         };
-        final CustomDialog2 dialog = new CustomDialog2(getContext(), listener, table);
+        final CustomDialog2 dialog = new CustomDialog2(getContext(), listener, table,self);
 
         dialog.show();
     }

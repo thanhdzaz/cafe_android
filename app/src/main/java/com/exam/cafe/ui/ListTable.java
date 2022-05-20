@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.exam.cafe.R;
+import com.exam.cafe.adapter.MenuListAdapter;
 import com.exam.cafe.adapter.TableListAdapter;
 import com.exam.cafe.db.Database;
 import com.exam.cafe.dto.Table;
@@ -19,15 +20,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListTable extends AppCompatActivity {
-
+    public TableListAdapter n;
+    public ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_table);
 
         List<Table> table = getListData();
-        final ListView listView = (ListView) findViewById(R.id.listView);
-        listView.setAdapter(new TableListAdapter(this, table));
+        listView = (ListView) findViewById(R.id.listView);
+        n = new TableListAdapter(this, table);
+        listView.setAdapter(n);
+
+        n.setSelf(n);
         // When the user clicks on the ListItem
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -53,6 +58,11 @@ public class ListTable extends AppCompatActivity {
         }
 
         return list;
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        n.refreshDB();
     }
 
 }

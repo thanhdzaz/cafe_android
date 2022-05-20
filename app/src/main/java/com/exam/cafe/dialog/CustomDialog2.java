@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.exam.cafe.R;
+import com.exam.cafe.adapter.TableListAdapter;
 import com.exam.cafe.db.Database;
 import com.exam.cafe.dto.Table;
 
@@ -27,14 +28,15 @@ public class CustomDialog2 extends Dialog {
     private Button buttonOK;
     private Button buttonCancel;
     private Table table;
-
+    private TableListAdapter tableAdapter;
     public CustomDialog2.EditListener listener;
 
-    public CustomDialog2(Context context, CustomDialog2.EditListener listener, Table table) {
+    public CustomDialog2(Context context, CustomDialog2.EditListener listener, Table table, TableListAdapter tableAdapter) {
         super(context);
         this.context = context;
         this.listener = listener;
         this.table = table;
+        this.tableAdapter = tableAdapter;
     }
 
     @Override
@@ -83,6 +85,7 @@ public class CustomDialog2 extends Dialog {
             Database db = new Database(getContext());
             db.executeSQL("UPDATE TableList SET number = " + txtNum + ", floor = " + txtFloor + ", status = \"" + txtStatus + "\" WHERE id =" + table.getId());
             this.dismiss(); // Close Dialog
+            tableAdapter.refreshDB();
         }
     }
 
