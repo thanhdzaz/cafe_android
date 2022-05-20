@@ -59,6 +59,7 @@ public class TableListAdapter extends BaseAdapter {
        this.listData = list;
         self.notifyDataSetChanged();
 
+
     }
 
     public Context getContext() {

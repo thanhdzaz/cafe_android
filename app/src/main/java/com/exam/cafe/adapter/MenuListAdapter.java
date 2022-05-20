@@ -59,6 +59,28 @@ public class MenuListAdapter extends BaseAdapter {
 
     }
 
+    public void seach(String s){
+
+        if(s.matches("")){
+            refreshDB();
+        }else{
+
+
+        List<Menu> list = new ArrayList<Menu>();
+
+        String sql = "select * from MenuList where name like '%"+s+"%'";
+
+        Database db = new Database(context);
+
+        Cursor cs = db.retrieveData(sql);
+
+        while (cs.moveToNext()) {
+            list.add(new Menu(cs.getInt(0),cs.getString(1),cs.getInt(2)));
+        }
+        this.listData = list;
+        self.notifyDataSetChanged();
+    }
+    }
 
     public MenuListAdapter(Context aContext,  List<Menu> listData) {
         this.context = aContext;

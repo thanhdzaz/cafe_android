@@ -32,8 +32,6 @@ public class AddMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(AddMenu.this,".",Toast.LENGTH_SHORT).show();
-
                 try {
 
 

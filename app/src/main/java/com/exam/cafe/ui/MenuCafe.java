@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.exam.cafe.R;
@@ -24,6 +27,8 @@ public class MenuCafe extends AppCompatActivity {
     Database db;
     public MenuListAdapter n;
     public ListView listView;
+    private Button search;
+    private EditText t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,16 @@ public class MenuCafe extends AppCompatActivity {
         db= new Database(this);
         db.executeSQL("CREATE TABLE IF NOT EXISTS MenuList (id INTEGER PRIMARY KEY, name TEXT, price INTEGER)");
         FloatingActionButton add = findViewById(R.id.fab);
+        t = findViewById(R.id.search_input);
+        search = findViewById(R.id.search_menu);
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                n.seach(t.getText().toString());
+            }
+        });
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
