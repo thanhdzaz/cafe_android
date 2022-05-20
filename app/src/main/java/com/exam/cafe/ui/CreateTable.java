@@ -29,16 +29,22 @@ public class CreateTable extends AppCompatActivity {
                 TextView tableNumber = findViewById(R.id.tableNumber);
                 TextView tableFloor = findViewById(R.id.tableFloor);
 
-                int tbNum = Integer.parseInt(tableNumber.getText().toString());
-                int tbFloor = Integer.parseInt(tableFloor.getText().toString());
-
-                boolean cr = tb.addTable(new Table(1,(int) tbNum,tbFloor, "chưa ngồi"));
-                if(cr){
-                    Toast.makeText(getApplicationContext(),"Tạo bàn thành công ✌🐧✌",Toast.LENGTH_LONG).show();
+                if(tableNumber.getText().toString().matches("") || tableFloor.getText().toString().matches("")){
+                    Toast.makeText(getApplicationContext(),"Vui lòng điền đầy đủ thông tin",Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(getApplicationContext(),"Thất bại !!, Lỗi khi tạo bàn",Toast.LENGTH_LONG).show();
+                    int tbNum = Integer.parseInt(tableNumber.getText().toString());
+                    int tbFloor = Integer.parseInt(tableFloor.getText().toString());
+
+
+                    boolean cr = tb.addTable(new Table(1,(int) tbNum,tbFloor, "chưa ngồi"));
+                    if(cr){
+                        Toast.makeText(getApplicationContext(),"Tạo bàn thành công ✌🐧✌",Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Thất bại !!, Lỗi khi tạo bàn",Toast.LENGTH_LONG).show();
+                    }
                 }
                 }
+
             });
     };
 }
